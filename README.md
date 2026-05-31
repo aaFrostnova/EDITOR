@@ -18,13 +18,27 @@ reconstructed embeddings will be saved in "--write_path"
 ### 1. train an E2T model for CLIP
 Following [vec2text](https://github.com/vec2text/vec2text)
 
-Our pre-trained model is coming soon.
+We release our pre-trained models on the Hugging Face Hub (CLIP ViT-L/14 text embeddings, trained on MS MARCO):
+
+| Model                    | Link                                                                                                    |
+| --------------------------| ---------------------------------------------------------------------------------------------------------|
+| Inversion (hypothesizer) | [Afrostnova/clip-text-msmarco-inversion](https://huggingface.co/Afrostnova/clip-text-msmarco-inversion) |
+| Corrector                | [Afrostnova/clip-text-msmarco-corrector](https://huggingface.co/Afrostnova/clip-text-msmarco-corrector) |
+
+Load them with this repo's `vec2text` code (upstream `vec2text` does not support the `CLIPTextModel` embedder):
+```python
+import vec2text
+inv = vec2text.models.InversionModel.from_pretrained("Afrostnova/clip-text-msmarco-inversion")
+cor = vec2text.models.CorrectorEncoderModel.from_pretrained("Afrostnova/clip-text-msmarco-corrector")
+corrector = vec2text.load_corrector(inv, cor)
+```
 
 ### 2. invert embedding to text
 Set the path in inverse_embedding.py 
 ```python
-inversion_model_path = "path to your zero model"
-corrector_model_path = "path to your correction model"
+# either our released checkpoints on the Hub, or your own local paths
+inversion_model_path = "Afrostnova/clip-text-msmarco-inversion"
+corrector_model_path = "Afrostnova/clip-text-msmarco-corrector"
 model_id = "stable-diffusion-v1-5(your local path)"
 embedding_path = "path to your reconstructed embeddings folder"
 origin_image_path = "path to your target images"
