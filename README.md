@@ -25,9 +25,9 @@ Datasets and precomputed hypotheses are cached in `$VEC2TEXT_CACHE` (default `~/
 ### 2. invert embedding to text
 Set the path in inverse_embedding.py 
 ```python
-# either our released checkpoints on the Hub, or your own local paths
-inversion_model_path = "clip-text-msmarco-inversion"
-corrector_model_path = "clip-text-msmarco-corrector"
+# your own E2T checkpoints from step 1
+inversion_model_path = "path to your zero model"
+corrector_model_path = "path to your correction model"
 model_id = "stable-diffusion-v1-5(your local path)"
 embedding_path = "path to your reconstructed embeddings folder"
 origin_image_path = "path to your target images"
