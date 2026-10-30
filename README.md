@@ -24,8 +24,8 @@ Following [vec2text](https://github.com/vec2text/vec2text)
 Set the path in inverse_embedding.py 
 ```python
 # either our released checkpoints on the Hub, or your own local paths
-inversion_model_path = "Afrostnova/clip-text-msmarco-inversion"
-corrector_model_path = "Afrostnova/clip-text-msmarco-corrector"
+inversion_model_path = "clip-text-msmarco-inversion"
+corrector_model_path = "clip-text-msmarco-corrector"
 model_id = "stable-diffusion-v1-5(your local path)"
 embedding_path = "path to your reconstructed embeddings folder"
 origin_image_path = "path to your target images"
