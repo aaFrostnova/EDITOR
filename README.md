@@ -18,6 +18,8 @@ reconstructed embeddings will be saved in "--write_path"
 ### 1. train an E2T model for CLIP
 Following [vec2text](https://github.com/vec2text/vec2text)
 
+Datasets and precomputed hypotheses are cached in `$VEC2TEXT_CACHE` (default `~/.cache/inversion`).
+
 
 
 ### 2. invert embedding to text

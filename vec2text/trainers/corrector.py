@@ -160,7 +160,7 @@ class Corrector(BaseTrainer):
         # so we won't overwrite the big dataset files when we use tiny subsets
         # during testing.
         # cache_dir = os.environ["VEC2TEXT_CACHE"]
-        cache_dir = "/project/pi_shiqingma_umass_edu/mingzheli/.cache/inversion"
+        cache_dir = os.environ.get("VEC2TEXT_CACHE", os.path.expanduser("~/.cache/inversion"))
 
 
 # Noisy compil
